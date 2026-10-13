@@ -69,7 +69,7 @@ def revenue_per_inhabitant() -> DataFrame:
         .withColumn("amount", F.round("amount", 2))
         .withColumn(
             "revenue_per_inhabitant",
-            F.round(F.col("amount") / borough_population_df.population, 2),
+            F.round(F.col("amount") / borough_population_df.population,4),
         )
         .sort("revenue_per_inhabitant", ascending=False)
     )
